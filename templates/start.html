@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <title>Главная страница</title>
+</head>
+<body>
+<div class="container">
+    <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+            </div>
+            <div class="col-4 text-center">
+                <a class="blog-header-logo text-dark" href="#">
+                    <ya-tr-span data-index="1-0" data-value="Large"
+                                data-translation="Онлайн библиотека"
+                                data-type="trSpan"><h2>Онлайн библиотека</h2>
+                    </ya-tr-span>
+                </a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <h6>Доступ: Гость </h6>
+                <a class="btn btn-sm btn-outline-secondary" href="#"
+                   onclick="window.location.href='login'">
+                    <ya-tr-span data-index="2-0" data-value="Sign up" data-translation="Авторизация"
+                                data-type="trSpan">Авторизация
+                    </ya-tr-span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 font-italic">
+                <ya-tr-span data-index="4-0" data-value="Catalog"
+                            data-translation="Каталог"
+                            data-type="trSpan">Каталог
+                </ya-tr-span>
+            </h1>
+        </div>
+    </div>
+    {%for page in book%}
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">
+                    <ya-tr-span data-index="5-0" data-value="Name" data-translation="Название"
+                                data-type="trSpan">{{page.title}}
+                    </ya-tr-span>
+                </h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4">
+                    <!--                картинка-->
+                </ul>
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>
+                        <ya-tr-span data-index="7-0" data-value="Autor"
+                                    data-translation="Автор" data-type="trSpan">
+                            Автор:
+                        </ya-tr-span>
+                    </li>
+                    <li>
+                        <ya-tr-span data-index="8-0" data-value="Year"
+                                    data-translation="Год выпуска" data-type="trSpan">Год выпуска:
+                        </ya-tr-span>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-lg btn-block btn-outline-primary">
+                    <ya-tr-span data-index="11-0" data-value="Download"
+                                data-translation="Скачать" data-type="trSpan">
+                        Скачать
+                    </ya-tr-span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+</div>
+</body>
+</html>
