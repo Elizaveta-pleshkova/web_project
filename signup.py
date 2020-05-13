@@ -1,15 +1,15 @@
 import os
-import csv
 
+import sqlalchemy
+from flask import Flask, flash, redirect, render_template, request, url_for
+from flask_login import LoginManager, UserMixin, login_user, login_required, \
+    logout_user
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
-from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
-from flask_sqlalchemy import SQLAlchemy
+
 from data import db_session
-from flask_login import LoginManager, UserMixin, login_manager, login_user, login_required, \
-    logout_user
-import sqlalchemy
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -65,15 +65,15 @@ def login_page():
         user = User.query.filter_by(email=email).first()
         if user.hashed_password == hashed_password:
             login_user(user)
-            next_page = request.args.get('next')
-            redirect(next_page)
+            if user.name == 'user':
+                return redirect(url_for('stage'))
+            else:
+                return redirect(url_for('admin'))
         else:
             flash('Login or password is not correct')
-
     else:
         flash('Please fill login and password fields')
         return render_template('login.html')
-
     form = LoginForm()
     return render_template('login.html', form=form)
 
@@ -81,7 +81,13 @@ def login_page():
 @app.route('/forusers', methods=['GET'])
 @login_required
 def stage():
-    return render_template('forusers.html', book=Book.query.all())
+    return render_template('forusers.html', book=Book.query.all(), user=User.query.all())
+
+
+@app.route('/admin', methods=['GET'])
+@login_required
+def admin():
+    return render_template('admin.html', book=Book.query.all(), user=User.query.all())
 
 
 @app.route('/register', methods=['POST', 'GET'])

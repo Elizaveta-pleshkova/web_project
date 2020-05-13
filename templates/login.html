@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="">
-     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="../static/css/floating-labels.css" rel="stylesheet">
     <title>Авторизация</title>
@@ -15,13 +17,13 @@
 <body>
 
 {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
+{% if messages %}
+<ul class=flashes>
     {% for message in messages %}
-      <li>{{ message }}</li>
+    <li>{{ message }}</li>
     {% endfor %}
-    </ul>
-  {% endif %}
+</ul>
+{% endif %}
 {% endwith %}
 
 <form class="form-signin" method="post">
@@ -36,7 +38,8 @@
     </div>
 
     <div class="form-label-group">
-        <input  type="email" name = "login" id="inputEmail" class="form-control" placeholder="Эл. адрес" required=""
+        <input type="email" name="login" id="inputEmail" class="form-control"
+               placeholder="Эл. адрес" required=""
                autofocus="">
         <label for="inputEmail">
             <ya-tr-span data-index="2-0" data-value="Email address" data-translation="Эл. адрес"
@@ -46,7 +49,8 @@
     </div>
 
     <div class="form-label-group">
-        <input  type="password" name = "password" id="inputPassword" class="form-control" placeholder="Пароль"
+        <input type="password" name="password" id="inputPassword" class="form-control"
+               placeholder="Пароль"
                required="">
         <label for="inputPassword">
             <ya-tr-span data-index="3-0" data-value="Password" data-translation="Пароль"
@@ -63,7 +67,8 @@
             </ya-tr-span>
         </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="window.location.href='forusers'">
+    <button class="btn btn-lg btn-primary btn-block" type="submit"
+            onclick="window.location.href='forusers'">
         <ya-tr-span data-index="5-0" data-value="Sign in" data-translation="Вход"
                     data-type="trSpan">Вход
         </ya-tr-span>

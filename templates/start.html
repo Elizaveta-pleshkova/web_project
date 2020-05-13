@@ -56,7 +56,8 @@
             </div>
             <div class="card-body">
                 <ul class="list-unstyled mt-3 mb-4">
-<!--picture-->
+                    <img src=f"data:image/png;base64,{base64.b64encode(page.photo).decode()}.format(encoded_image=base64.b64encode(page.photo).decode())"
+                         alt="Red dot"/>
                 </ul>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>
@@ -67,7 +68,8 @@
                     </li>
                     <li>
                         <ya-tr-span data-index="8-0" data-value="Year"
-                                    data-translation="Год выпуска" data-type="trSpan">Год выпуска: {{page.year}}
+                                    data-translation="Год выпуска" data-type="trSpan">Год выпуска:
+                            {{page.year}}
                         </ya-tr-span>
                     </li>
                 </ul>
